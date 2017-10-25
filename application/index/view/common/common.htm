@@ -1,0 +1,97 @@
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>用bootstrap制作一个网页</title>
+    <link rel="stylesheet" type="text/css" href="__INDEX__/css/bootstrap.css">
+    <link rel="shortcut icon" href="__INDEX__/favicon.ico"/>
+    <link rel="bookmark" href="__INDEX__/favicon.ico"/>
+    <!--引入全局样式-->
+    <link rel="stylesheet" type="text/css" href="__INDEX__/css/index.css">
+    <!--登录按钮引入css文件-->
+    <link rel="stylesheet" type="text/css" href="__INDEX__/css/style.css">
+
+    <script type="text/javascript" src="__INDEX__/js/jquery.min.js"></script>
+    <script type="text/javascript" src="__INDEX__/js/bootstrap.js"></script>
+    <!--引入全局js-->
+    <script type="text/javascript" src="__INDEX__/js/index.js"></script>
+    <!--附加css-->
+    <!--登录按钮引入js文件-->
+
+    <script type="text/javascript" src="__INDEX__/js/jquery.easing.min.js"></script>
+    <!--登录按钮引入js文件-->
+    <style type="text/css">
+        .tool a{
+            margin-left: 30px;
+        }
+
+        .tooltip-inner{
+            background-color:#2aabd2;
+        }
+    </style>
+    <!--登录按钮css样式-->
+    <style type="text/css">
+        .vad { margin: 120px 0 5px; font-family: Consolas,arial,宋体,sans-serif; text-align:center;}
+        .vad a { display: inline-block; height: 36px; line-height: 36px; margin: 0 5px; padding: 0 50px; font-size: 14px; text-align:center; color:#eee; text-decoration: none; background-color: #222;}
+        .vad a:hover { color: #fff; background-color: #000;}
+        .thead { width: 728px; height: 90px; margin: 0 auto; border-bottom: 40px solid #fff;}
+    </style>
+    <!--登录按钮css样式-->
+    <!--附加css-->
+    <!--附加js-->
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //获取元素
+            var as = document.getElementById("top").getElementsByTagName("a");
+            var lis = document.getElementById("bottom").getElementsByTagName("li");
+
+            for(var i=0;i<as.length;i++){
+                //设置索引
+                as[i].index =i;
+                //进行清空
+                as[i].onmouseover = function(){
+
+                    for(var j =0;j<as.length;j++){
+                        as[j].className = "";
+                        lis[j].className = "";
+                    }
+                    this.className = "damao";
+                    lis[this.index].className ="show";
+                }
+
+            }
+            //滑动块显示链接
+            var html = "<ul>\n" +
+                "\t\t\t\t\t\t<li><a href='https://www.west.cn/' target=\"_blank\"><span>1</span>西部数码</a></li>\n" +
+                "\t\t\t\t\t\t<li><a href='https://www.aliyun.com/' target=\"_blank\"><span>2</span>阿里云</a></li>\n" +
+                "\t\t\t\t\t</ul>";
+            $('.top a').mouseenter(function () {
+                $('.bottom').innerHTML=html;
+            });
+        });
+    </script>
+    <!--登录按钮js-->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var k=!0;
+
+            $(".openlogin").click(function(){
+                k&&"0px"!=$("#loginalert").css("top")&& ($("#loginalert").show(),$(".loginmask").fadeIn(500),$("#loginalert").animate({top:120},400,"easeOutQuart"))
+            });
+            $(".loginmask,.closealert").click(function(){
+                k&&(k=!1,$("#loginalert").animate({top:-500},400,"easeOutQuart",function(){$("#loginalert").hide();k=!0}),$(".loginmask").fadeOut(500))
+            });
+            $(".loginmask").css("opacity",0.8);
+
+            if($.browser.version <= 6){
+                $('#reg_setp,.loginmask').height($(document).height());
+            }
+
+
+        });
+    </script>
+    <!--登录按钮js-->
+    <!--附加js-->
+
+</head>
